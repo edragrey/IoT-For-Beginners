@@ -53,7 +53,8 @@ Publish telemetry to the MQTT broker.
     doc["light"] = light;
 
     string telemetry;
-    serializeJson(doc, telemetry);
+    JsonObject obj = doc.as<JsonObject>();
+    serializeJson(obj, telemetry);
 
     Serial.print("Sending telemetry ");
     Serial.println(telemetry.c_str());
